@@ -22,7 +22,10 @@ class Order{
 }
 Route::get('/', function () {
 
-    OrderStatusUpdate::dispatch(new Order(1));
-
     return view('welcome');
+});
+
+Route::get('update', function () {
+
+OrderStatusUpdate::dispatch(new Order(1));
 });
