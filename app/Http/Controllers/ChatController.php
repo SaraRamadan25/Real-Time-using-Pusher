@@ -32,7 +32,7 @@ class ChatController extends Controller
     {
         $data = $this->prepareStoreData($request);
         if($data['userId'] === $data['otherUserId']){
-            return $this->error('You can not create a chat with your own');
+            return $this->error('You can not create a chat with yourself');
         }
 
         $previousChat = $this->getPreviousChat($data['otherUserId']);
@@ -88,6 +88,4 @@ class ChatController extends Controller
         $chat->load('lastMessage.user', 'participants.user');
         return $this->success($chat);
     }
-
-
 }

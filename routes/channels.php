@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Broadcast;
 |
 */
 
-Broadcast::channel('orders.{orderId}', function (User $user, int $orderId) {
-    return $user->id === Order::findOrNew($orderId)->user_id;
-});
+Broadcast::channel(
+    'chat.{chatId}',
+    function (User $user, $chatId) {
+        return $user->chats->contains($chatId);
+    }
+);

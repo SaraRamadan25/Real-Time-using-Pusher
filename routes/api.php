@@ -7,7 +7,6 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Support\Facades\Route;
 
-Broadcast::routes(['middleware' => ['auth:sanctum']]);
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +18,7 @@ Broadcast::routes(['middleware' => ['auth:sanctum']]);
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Broadcast::routes(['middleware' => ['auth:sanctum']]);
 
 Route::prefix('auth')
     ->as('auth.')

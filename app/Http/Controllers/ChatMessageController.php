@@ -34,7 +34,6 @@ class ChatMessageController extends Controller
         return $this->success($messages->getCollection());
     }
 
-
     public function store(StoreMessageRequest $request) : JsonResponse
     {
         $data = $request->validated();
@@ -49,10 +48,10 @@ class ChatMessageController extends Controller
     }
 
     private function sendNotificationToOther(ChatMessage $chatMessage) : void {
-$chatID = $chatMessage->chat_id;
+
+        $chatID = $chatMessage->chat_id;
+
         broadcast(new NewMessageSent($chatMessage))->toOthers();
-
-
         }
 
 }
